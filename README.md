@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # relife
 
 ## Project setup
@@ -25,9 +24,3 @@ npm run test
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# relife
->>>>>>> 44a9fe81e2a1892a8487cc2245576c57a6b338ef

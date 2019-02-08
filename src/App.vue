@@ -1,11 +1,22 @@
 <template>
-  <div id="app">
-    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full">
-      Button
-    </button>
-    <router-view/>
+  <div id="app" class="flex flex-col min-h-screen">
+    <router-view class="flex-1"/>
+    <navbar class="pin-b"></navbar>
   </div>
 </template>
+
+<script>
+  import Navbar from './components/Navbar'
+
+  export default {
+    components: {
+      Navbar
+    },
+    mounted() {
+      this.eva.replace()
+    }
+  }
+</script>
 
 <style lang="scss">
 #app {

@@ -5,6 +5,9 @@ import store from './store'
 import './registerServiceWorker'
 
 import '@/assets/css/tailwind.css'
+import EvaIcons from 'vue-eva-icons'
+
+Vue.use(EvaIcons)
 
 Vue.config.productionTip = false
 

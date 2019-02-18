@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Profile from './views/Profile'
 
 Vue.use(Router)
 
@@ -8,8 +7,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'profile',
-      component: Profile
+      name: 'Profile',
+      component: () => import('./views/Profile.vue')
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: () => import('./views/auth/Login.vue')
     }
     // {
     //   path: '/about',

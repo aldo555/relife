@@ -6,16 +6,27 @@
 </template>
 
 <script>
-  import Navbar from './components/Navbar'
+import Navbar from './components/Navbar'
+import gql from 'graphql-tag'
 
-  export default {
-    components: {
-      Navbar
-    },
-    mounted() {
-      this.eva.replace()
+export default {
+  components: {
+    Navbar
+  },
+  data() {
+    return {
+      user: 'haha'
     }
+  },
+  apollo: {
+    // Simple query that will update the 'hello' vue property
+    user: gql`query {
+      user(id: 1) {
+        name
+      }
+    }`
   }
+}
 </script>
 
 <style lang="scss">

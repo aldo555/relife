@@ -39,14 +39,14 @@ import { onLogin } from '../../vue-apollo.js'
 
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       username: '',
       password: ''
     }
   },
   methods: {
-    login() {
+    login () {
       this.$apollo.mutate({
         // Query
         mutation: gql`mutation($data: LoginInput!) {
@@ -64,7 +64,7 @@ export default {
       }).then((data) => {
         // Result
         onLogin(this.$apollo.provider.defaultClient, data.data.login.access_token)
-        this.$router.push({name: 'Profile'})
+        this.$router.push({ name: 'Profile' })
       }).catch((error) => {
         // Error
         console.error(error)

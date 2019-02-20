@@ -13,7 +13,7 @@ export default {
   components: {
     Navbar
   },
-  data() {
+  data () {
     return {
       user: 'haha'
     }

@@ -19,14 +19,15 @@ import Peer from 'peerjs'
 
 export default {
   name: 'Profile',
-  data() {
+
+  data () {
     return {
       me: null,
       peer: null
     }
   },
   methods: {
-    logout() {
+    logout () {
       onLogout(this.$apollo.provider.defaultClient)
       this.$router.push({name: 'Login'})
     },
@@ -54,12 +55,19 @@ export default {
   apollo: {
     me: gql`query {
       me {
-        id 
+        id
         name
         email
       }
     }
+    `,
+    hello: gql`
+      query {
+        hello @client {
+          msg
+        }
+      }
     `
-  }
+  },
 }
 </script>

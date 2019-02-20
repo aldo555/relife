@@ -9,7 +9,6 @@ import EvaIcons from 'vue-eva-icons'
 import { createProvider } from './vue-apollo'
 
 Vue.use(EvaIcons)
-
 Vue.config.productionTip = false
 
 new Vue({

@@ -21,7 +21,8 @@ export default {
   name: 'Profile',
   data() {
     return {
-      me: null
+      me: null,
+      peer: null
     }
   },
   methods: {
@@ -30,7 +31,7 @@ export default {
       this.$router.push({name: 'Login'})
     },
     connect() {
-      var conn = peer.connect('bobi');
+      var conn = this.peer.connect('bobi');
       //peer.on('connection', function(conn) { cut and insert the code block below here });
 
       conn.on('open', function() {
@@ -45,8 +46,8 @@ export default {
     }
   },
   mounted() {
-    var peer = new Peer('aldo'); //change to bobi when testing
-    peer.on('open', function(id) {
+    this.peer = new Peer('aldo'); //change to bobi when testing
+    this.peer.on('open', function(id) {
       console.log('My peer ID is: ' + id)
     });
   },

@@ -1,11 +1,33 @@
 <template>
-  <div id="app">
-    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full">
-      Button
-    </button>
-    <router-view/>
+  <div id="app" class="flex flex-col min-h-screen">
+    <router-view class="flex-1"/>
+    <navbar class="pin-b"></navbar>
   </div>
 </template>
+
+<script>
+import Navbar from './components/Navbar'
+import gql from 'graphql-tag'
+
+export default {
+  components: {
+    Navbar
+  },
+  data () {
+    return {
+      user: 'haha'
+    }
+  },
+  apollo: {
+    // Simple query that will update the 'hello' vue property
+    user: gql`query {
+      user(id: 1) {
+        name
+      }
+    }`
+  }
+}
+</script>
 
 <style lang="scss">
 #app {

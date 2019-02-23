@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center p-5">
     <div class="flex flex-col">
       <h1 class="text-2xl mt-5 mb-1" v-if="me">Hello, {{ me.name }}!</h1>
       <h5 v-if="peer" class="block text-grey-darker text-sm font-bold mb-5" for="email">
@@ -9,7 +9,7 @@
         Couldn't establish connection to server
       </h5>
 
-      <video v-if="conn && conn.open && callSrc" width="480" height="360" autoplay class="center-block" :srcObject.prop='callSrc'></video>
+      <video v-if="conn && conn.open && callSrc" autoplay class="center-block w-full" :srcObject.prop='callSrc'></video>
       
       <div v-if="!callSrc && incomingCall">
         <h5 v-if="conn && !conn.open" class="block text-grey-darker text-sm font-bold mt-5 mb-2" for="email">

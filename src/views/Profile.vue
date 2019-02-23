@@ -80,7 +80,7 @@ export default {
       let that = this;
       this.conn = this.peer.connect(this.connectionId, { metadata: { name: this.me.name } })
 
-      navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+      navigator.mediaDevices.getUserMedia({ audio: true, video: true })
       .then(function(stream) {
         that.stream = stream
         that.call = that.peer.call(that.connectionId, that.stream)  
@@ -107,7 +107,7 @@ export default {
 
     acceptConnection() {
       let that = this;
-      navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+      navigator.mediaDevices.getUserMedia({ audio: true, video: true })
       .then(function (stream) {
         that.stream = stream
         that.call.answer(that.stream)

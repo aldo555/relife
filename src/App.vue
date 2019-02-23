@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="flex flex-col min-h-screen">
-    <router-view class="flex-grow"/>
-    <navbar class="pin-b"></navbar>
+  <div id="app" class="min-h-screen bg-grey-lightest">
+    <router-view class="pb-24" />
+    <navbar class="fixed pin-b w-full"></navbar>
   </div>
 </template>
 

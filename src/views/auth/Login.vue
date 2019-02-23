@@ -64,7 +64,7 @@ export default {
       }).then((data) => {
         // Result
         onLogin(this.$apollo.provider.defaultClient, data.data.login.access_token)
-        this.$router.push({ name: 'Profile' })
+        this.$router.push({ name: 'Start' })
       }).catch((error) => {
         // Error
         console.error(error)

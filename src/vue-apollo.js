@@ -81,6 +81,15 @@ export function createProvider (options = {}) {
   return apolloProvider
 }
 
+// Check if user is logged in
+export function checkAuth () {
+  if (!localStorage.getItem(AUTH_TOKEN)) {
+    return false
+  }
+
+  return true
+}
+
 // Manually call this when user log in
 export async function onLogin (apolloClient, token) {
   if (typeof localStorage !== 'undefined' && token) {

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import { checkAuth } from './vue-apollo.js'
+
 Vue.use(Router)
 
 export default new Router({
@@ -8,7 +10,14 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: () => import('./views/Profile.vue')
+      component: () => import('./views/Profile.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!checkAuth()) {
+          return next({ name: 'Login' })
+        }
+
+        return next()
+      }
     },
     {
       path: '/',
@@ -18,12 +27,26 @@ export default new Router({
     {
       path: '/start',
       name: 'Start',
-      component: () => import('./views/Start.vue')
+      component: () => import('./views/Start.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!checkAuth()) {
+          return next({ name: 'Login' })
+        }
+
+        return next()
+      }
     },
     {
       path: '/settings',
       name: 'Settings',
-      component: () => import('./views/Settings.vue')
+      component: () => import('./views/Settings.vue'),
+      beforeEnter: (to, from, next) => {
+        if (!checkAuth()) {
+          return next({ name: 'Login' })
+        }
+
+        return next()
+      }
     }
     // {
     //   path: '/about',

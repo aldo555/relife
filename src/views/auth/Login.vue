@@ -1,8 +1,8 @@
 <template>
-  <div>
-  <h1 class="text-5xl">Login</h1>
+  <div class="p-5">
+    <h1 class="text-5xl mb-5">Login</h1>
     <div class="flex justify-center">
-        <div class="w-full max-w-xs py-5">
+        <div class="w-full max-w-xs">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" @submit.prevent="login">
                 <div class="mb-4">
                 <label class="block text-grey-darker text-sm font-bold mb-2" for="email">

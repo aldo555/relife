@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="flex flex-col min-h-screen">
-    <router-view class="flex-1"/>
+    <router-view class="flex-grow"/>
     <navbar class="pin-b"></navbar>
   </div>
 </template>

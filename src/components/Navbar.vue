@@ -4,7 +4,7 @@
       <eva-icon :name="profileIcon" class="fill-current"></eva-icon>
       <br />
       Profile
-    </div> 
+    </div>
     <div @click="$router.push({name: 'Start'})" :class="{'text-white': startIcon === 'play-circle'}" class="w-1/3 bg-indigo-darkest hover:text-white py-3 text-xl subpixel-antialiased">
       <eva-icon :name="startIcon" class="fill-current"></eva-icon>
       <br />
@@ -21,20 +21,20 @@
 <script>
 export default {
   name: 'Navbar',
-  data() {
+  data () {
     return {
       profileIcon: 'person-outline',
       startIcon: 'play-circle-outline',
-      settingsIcon: 'settings-outline',
+      settingsIcon: 'settings-outline'
     }
   },
   watch: {
-    $route(to, from) {
+    $route (to, from) {
       this.currentTab(this.$route.name)
     }
   },
   methods: {
-    currentTab(tab) {
+    currentTab (tab) {
       switch (tab) {
         case 'Profile':
           this.profileIcon = 'person'
@@ -53,6 +53,6 @@ export default {
           break
       }
     }
-  },
+  }
 }
 </script>

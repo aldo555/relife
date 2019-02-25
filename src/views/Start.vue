@@ -35,12 +35,11 @@
 
       <div v-if="offerResponseMsg!=''" class="bg-indigo-lightest border border-indigo-light text-indigo-dark px-4 py-3 rounded relative mt-3" role="alert">
         <strong class="font-bold">Request status:</strong>&nbsp;
-        <span class="block sm:inline">Offer {{offerResponseMsg}}!.</span>
+        <span class="block sm:inline">Offer {{offerResponseMsg}}!</span>
         <span class="absolute pin-t pin-b pin-r px-4 pt-2" @click="clearMessage">
           <svg class="fill-current h-6 w-6 text-indigo-darkest" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
         </span>
       </div>
-
 
       <form @keydown.enter.prevent="" v-if="stream!=null && callSrc!=null && conn!=null && outgoingCall" class="w-full mt-5" @submit.prevent="submitOffer">
         <div v-if="!waitingOfferResponse">
@@ -61,10 +60,9 @@
       </form>
 
       <div v-if="offerReceived" class="w-full py-4">
-        <h5 class="block text-white text-sm font-bold">Request received!</h5>
-        <div class="w-full">
+        <h5 class="block text-sm font-bold"><strong>{{conn.metadata.name}} made a request for ${{requestValue}}</strong></h5>
+        <div class="w-full pt-3">
           <p class="w-full">{{requestMsg}}</p>
-          <p class="w-full">The reward is ${{requestValue}}</p>
           <div class="justify-between  block md:flex">
             <button @click="offerResponse('accept')" class="w-full mx-1 text-white bg-green hover:bg-green-light mt-3 text-grey-darkest font-semibold py-2 px-4 rounded shadow">Accept</button>
             <button @click="offerResponse('reject')" class="w-full mx-1 text-white bg-red hover:bg-red-light mt-3 text-grey-darkest font-semibold py-2 px-4 rounded shadow">Decline</button>
@@ -120,6 +118,7 @@ export default {
         'value': this.requestValue,
         'type': 'offer'
       }
+      this.offerResponseMsg = ''
       this.waitingOfferResponse = true
       this.conn.send(request)
     },

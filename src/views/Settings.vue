@@ -16,8 +16,8 @@ export default {
   methods: {
     logout () {
       onLogout(this.$apollo.provider.defaultClient)
-      this.$router.push({name: 'Login'})
-    },
+      this.$router.push({ name: 'Login' })
+    }
   }
 }
 </script>

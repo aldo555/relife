@@ -7,6 +7,7 @@ import './registerServiceWorker'
 import '@/assets/css/tailwind.css'
 import EvaIcons from 'vue-eva-icons'
 import { createProvider } from './vue-apollo'
+import 'izitoast/dist/js/iziToast.min'
 
 Vue.use(EvaIcons)
 Vue.config.productionTip = false

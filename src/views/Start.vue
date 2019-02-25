@@ -156,7 +156,6 @@ export default {
           that.waitingOfferResponse = false
           that.requestMsg = ''
           that.offerResponseMsg = data.message
-          console.log(data)
         } else {
           console.log(data)
         }
@@ -225,8 +224,8 @@ export default {
       iceTransportPolicy: 'relay',
       config: {
         iceServers: [
-          { url: 'stun:stun.l.google.com:19302' },
-          { url: 'turn:aftermath-studio.go.ro:3478', credential: 'Acasa55@', username: 'aftermath' }
+          { urls: 'stun:stun.l.google.com:19302' },
+          { urls: 'turn:aftermath-studio.go.ro:3478', credential: 'Acasa55@', username: 'aftermath' }
         ]
       }
     }
@@ -250,7 +249,7 @@ export default {
         that.callSrc = null
         that.connectionId = ''
         that.incomingCall = false
-        this.offerResponseMsg = ''
+        that.offerResponseMsg = ''
       })
     })
 

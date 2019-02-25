@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "apollo-link-state": "^0.4.2",
+    "izitoast": "^1.4.0",
     "peerjs": "^0.3.22",
     "register-service-worker": "^1.6.2",
     "terser": "^3.14.1",

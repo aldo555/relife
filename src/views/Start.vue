@@ -42,16 +42,16 @@
       </div>
 
 
-      <form v-if="stream!=null && callSrc!=null && conn!=null && outgoingCall" class="w-full mt-5" @submit.prevent="submitOffer">
+      <form @keydown.enter.prevent="" v-if="stream!=null && callSrc!=null && conn!=null && outgoingCall" class="w-full mt-5" @submit.prevent="submitOffer">
         <div v-if="!waitingOfferResponse">
           <div class="w-full flex">
             <label for="requestMsg" class="w-1/3 mr-5 py-2">Request</label>
-            <input id="requestMsg" required="required" class="shadow appearance-none border rounded w-2/3 py-2 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="requestMsg"/>
+            <input id="requestMsg" required="required" class="shadow appearance-none border rounded w-2/3 py-2 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="requestMsg" />
           </div>
           <div class="w-full flex">
             <button @click="changeValue(5)" type="submit" class="text-white bg-indigo-darkest hover:bg-indigo-dark w-full hover:bg-green-light my-3 text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow md:w-1/3">$5</button>
-            <button @click="changeValue(10)" type="submit" class="text-white bg-indigo-darkest hover:bg-indigo-dark my-3 text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow md:w-1/3">$10</button>
-            <button @click="changeValue(15)" type="submit" class="text-white bg-indigo-darkest hover:bg-indigo-dark my-3 text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow md:w-1/3">$15</button>
+            <button @click="changeValue(10)" type="submit" class="text-white bg-indigo-darkest hover:bg-indigo-dark w-full my-3 text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow md:w-1/3">$10</button>
+            <button @click="changeValue(15)" type="submit" class="text-white bg-indigo-darkest hover:bg-indigo-dark w-full my-3 text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow md:w-1/3">$15</button>
           </div>
         </div>
         <div v-if="waitingOfferResponse">

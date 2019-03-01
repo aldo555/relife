@@ -42,7 +42,7 @@
       </div>
 
 
-      <form v-if="stream!=null && callSrc!=null && conn!=null && outgoingCall" class="w-full mt-5" @submit.prevent="submitOffer">
+      <form v-if="stream!=null && callSrc!=null && conn!=null" class="w-full mt-5" @submit.prevent="submitOffer">
         <div v-if="!waitingOfferResponse">
           <div class="w-full flex">
             <label for="requestMsg" class="w-1/3 mr-5 py-2">Request</label>
@@ -97,7 +97,6 @@ export default {
       me: null,
       peer: null,
       incomingCall: false,
-      outgoingCall: false,
       conn: null,
       call: null,
       stream: null,
@@ -173,7 +172,6 @@ export default {
         .then(function (stream) {
           that.stream = stream
           that.call = that.peer.call(that.connectionId, that.stream)
-          that.outgoingCall = true
           that.call.on('stream', function (stream) {
             that.callSrc = stream
           })
@@ -285,17 +283,16 @@ export default {
     }
 
     // checking if call was ended by answerer
-    if (this.conn && !this.conn.open && this.call && !this.call.open && this.outgoingCall) {
-      if (this.stream) {
-        this.stream.getTracks().forEach(function (track) { track.stop() })
-      }
-      this.conn = null
-      this.call = null
-      this.stream = null
-      this.callSrc = null
-      this.connectionId = ''
-      this.outgoingCall = false
-    }
+    // if (this.conn && !this.conn.open && this.call && !this.call.open) {
+    //   if (this.stream) {
+    //     this.stream.getTracks().forEach(function (track) { track.stop() })
+    //   }
+    //   this.conn = null
+    //   this.call = null
+    //   this.stream = null
+    //   this.callSrc = null
+    //   this.connectionId = ''
+    // }
   },
   apollo: {
     me: gql`query {
